@@ -16,7 +16,7 @@ type Info struct {
  * @see		是否可以封装成为一个共有函数，倒是也没有太大的用处
  * @param
  */
-func SliceToString() {
+func SliceToString1() {
 	//slice := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 	// 注意：《struct{ x string }》相当于 Info 的作用
@@ -41,4 +41,22 @@ func SliceToString() {
 	}
 	fmt.Printf("tmp，类型：%T，值：%v\n", tmp1, tmp1)
 
+}
+
+/**
+ * 封装的函数
+ * @see
+ * @param
+ */
+func SliceToString(s []interface{}) string {
+	if s == nil {
+		return ""
+	}
+	tmp := fmt.Sprint(s)
+	tmp = strings.Trim(tmp, "[]{}")
+	replaceString := []string{" ", "{", "}"}
+	for _, v := range replaceString {
+		tmp = strings.ReplaceAll(tmp, v, "")
+	}
+	return tmp
 }
