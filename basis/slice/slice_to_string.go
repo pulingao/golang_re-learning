@@ -44,6 +44,19 @@ func SliceToString1() {
 }
 
 /**
+ * 作为一个提示方法放在这里吧，没有什么通用性
+ * @see
+ * @param
+ */
+func StringSliceConvToInterface(args ...string) []interface{} {
+	ss := make([]interface{}, len(args))
+	for i, v := range args {
+		ss[i] = v
+	}
+	return ss
+}
+
+/**
  * 封装的函数
  * @see
  * @param
