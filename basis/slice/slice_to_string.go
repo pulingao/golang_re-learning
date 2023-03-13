@@ -58,5 +58,5 @@ func SliceToString(s []interface{}) string {
 	for _, v := range replaceString {
 		tmp = strings.ReplaceAll(tmp, v, "")
 	}
-	return tmp
+	return strings.Trim(tmp, " []{}")
 }
