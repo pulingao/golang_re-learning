@@ -15,9 +15,10 @@ import (
  * @param
  */
 func WaitInSecondsOutput(seconds int, s string) {
-	for i := 1; i <= seconds; i++ {
-		fmt.Printf("[%v] %v [%vs]\n", MySysTime(), s, i)
+	for seconds > 0 {
+		fmt.Printf("[%v] %v [%vs]\n", MySysTime(), s, seconds)
 		time.Sleep(time.Second)
+		seconds--
 	}
 }
 
