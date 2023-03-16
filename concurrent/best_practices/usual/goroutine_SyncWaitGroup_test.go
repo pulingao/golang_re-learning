@@ -2,7 +2,7 @@ package usual
 
 import "testing"
 
-func Test_main(t *testing.T) {
+func Test_GR_SyncWaitGroup(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
@@ -11,7 +11,7 @@ func Test_main(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			main()
+			GR_SyncWaitGroup()
 		})
 	}
 }

@@ -15,7 +15,7 @@ func A(i int) {
 	fmt.Println("我是A", i)
 }
 
-func main() {
+func GR_SyncWaitGroup() {
 
 	//使用方式参考：http://c.biancheng.net/view/108.html
 	var wg sync.WaitGroup
