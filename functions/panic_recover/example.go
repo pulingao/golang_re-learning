@@ -3,6 +3,7 @@ package panic_recover
 import (
 	"fmt"
 	"github.com/pulingao/golang_re-learning/tools"
+	"math/rand"
 	"time"
 )
 
@@ -176,9 +177,12 @@ func T_4() {
 	t1 := time.Now()
 	tools.Info("当前时间：%v", tools.MySysTimeFormat(t1))
 	Try(func() {
-		x, y := 100, 0
+		x := 100
+		// 随机数
+		rand.Seed(time.Now().Unix())
+		y := rand.Intn(20)
 		z := x / y
-		fmt.Println(z)
+		tools.Success("函数正常输出结果：%v / %v = %v", x, y, z)
 	}, func(a any) {
 		tools.Error("捕获到错误：%v，后续的继续执行", a)
 	})
