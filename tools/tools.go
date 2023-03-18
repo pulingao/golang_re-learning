@@ -204,6 +204,10 @@ func MySysTime() string {
 	return time.Now().Format("2006-01-02 15:04:05")
 }
 
+func MySysTimeFormat(t time.Time) string {
+	return t.Format("2006-01-02 15:04:05")
+}
+
 func MySysTimeToTime() time.Time {
 	location, _ := time.LoadLocation("Asia/Shanghai")
 	currentTimeFormat, _ := time.ParseInLocation("2006-01-02 15:04:05", time.Now().Format("2006-01-02 15:04:05"), location)
