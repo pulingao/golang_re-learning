@@ -33,15 +33,15 @@ func process(conn net.Conn) {
 	defer conn.Close() // 关闭连接
 	for {
 		reader := bufio.NewReader(conn)
-		var buf [128]byte
+		var buf [512]byte
 		n, err := reader.Read(buf[:]) // 读取数据
 		if err != nil {
 			fmt.Println("从客户端读取失败, 错误:", err)
 			break
 		}
-		recvStr := string(buf[:n])
-		responseStr := fmt.Sprintf("response{ %v }", recvStr)
-		fmt.Println("收到客户端发来的数据：", recvStr, "，准备响应：", responseStr)
+		revStr := string(buf[:n])
+		responseStr := fmt.Sprintf("response{ %v }", revStr)
+		fmt.Println("收到客户端发来的数据：", revStr, "，准备响应：", responseStr)
 		conn.Write([]byte(responseStr)) // 发送（响应）数据
 	}
 }
