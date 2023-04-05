@@ -39,6 +39,28 @@ func Error(format string, a ...interface{}) {
 	prefix := red(erro)
 	fmt.Println(formatLog(prefix), fmt.Sprintf(format, a...))
 }
+
+// Direct output, no second parameter required
+func TraceDo(format string) {
+	Trace(reFormat(format))
+}
+func InfoDo(format string) {
+	Info(reFormat(format))
+}
+func SuccessDo(format string) {
+	Success(reFormat(format))
+}
+func WarningDo(format string) {
+	Warning(reFormat(format))
+}
+func ErrorDo(format string) {
+	Error(reFormat(format))
+}
+
+func reFormat(s string) (fm string, a interface{}) {
+	return s + "%v", ""
+}
+
 func red(s string) string {
 	return fmt.Sprintf("\x1b[%dm%s\x1b[0m", color_red, s)
 }
